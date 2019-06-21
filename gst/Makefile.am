@@ -16,6 +16,6 @@ else
 RKXIMAGE_DIR=
 endif
 
-SUBDIRS = $(V4l2_DIR) $(RKXIMAGE_DIR) $(KMS_DIR)
+SUBDIRS = $(RKXIMAGE_DIR) $(KMS_DIR)
 
 include $(top_srcdir)/common/parallel-subdirs.mak
