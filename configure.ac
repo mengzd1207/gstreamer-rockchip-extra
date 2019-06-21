@@ -383,7 +383,7 @@ AC_SUBST(GST_PLUGIN_LDFLAGS)
 dnl *** output files ***
 
 dnl *** rkv4l2 ***
-translit(dnm, m, l) AM_CONDITIONAL(USE_RKV4L2, true)
+translit(dnm, m, l) AM_CONDITIONAL(USE_RKV4L2, flase)
 AG_GST_CHECK_FEATURE(RKV4L2, [v4l2 libraries], rkv4l2, [
   PKG_CHECK_MODULES([RKV4L2], [libv4l2], HAVE_RKV4L2=yes, HAVE_RKV4L2=no)
 ])
