@@ -1,8 +1,8 @@
-gstreamer1.0-rockchip-extra (20190415-1) stable; urgency=medium
+gstreamer1.0-rockchip-extra (20190809-1) stable; urgency=medium
 
-  * change build message to 20190415
+  * change build message to 20190908
 
- -- Caesar Wang <wxt@rock-chips.com>  Mon, 15 Apr 2019 17:48:20 +0800
+ -- Caesar Wang <wxt@rock-chips.com>  Fri, 21 Jun 2019 11:19:20 +0800
 
 gstreamer1.0-rockchip-extra (20171218-1) UNRELEASED; urgency=medium
 
