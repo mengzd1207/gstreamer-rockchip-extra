@@ -484,6 +484,7 @@ gst_x_image_sink_ximage_put (GstRkXImageSink * ximagesink, GstBuffer * ximage)
   GstVideoRectangle result;
   GstVideoMeta *video_info;
   GstMemory *mem;
+  struct drm_gem_close arg = { 0, };
   gboolean draw_border = FALSE;
   guint32 fb_id, gem_handle, w, h, fmt, bo_handles[4] = { 0, };
   guint32 offsets[4] = { 0, };
@@ -630,6 +631,11 @@ gst_x_image_sink_ximage_put (GstRkXImageSink * ximagesink, GstBuffer * ximage)
 
   ret = drmModeAddFB2 (ximagesink->fd, w, h, fmt, bo_handles, pitches,
       offsets, &fb_id, 0);
+
+  /* Close gem handle to avoid leaking */
+  arg.handle = gem_handle;
+  drmIoctl (ximagesink->fd, DRM_IOCTL_GEM_CLOSE, &arg);
+
   if (ret < 0) {
     GST_ERROR_OBJECT (ximagesink, "drmModeAddFB2 failed: %s (%d)",
         strerror (-ret), ret);
